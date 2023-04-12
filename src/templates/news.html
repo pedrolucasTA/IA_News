@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notícias</title>
+</head>
+<body>
+	<h1>As 10 Notícias da ultima hora:</h1>
+	<ul>
+		{% for article in articles %}
+		<li>
+			<h2>{{ article.title }}</h2>
+			<p>{{ article.description }}</p>
+			<a href="{{ article.url }}" target="_blank">Leia mais</a>
+		</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
