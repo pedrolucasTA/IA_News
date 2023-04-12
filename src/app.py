@@ -1,7 +1,9 @@
 import speech_recognition as sr
 import pyttsx3
 import requests
+import os
 from flask import Flask, render_template
+
 
 app = Flask(__name__, static_folder='static')
 
@@ -58,4 +60,5 @@ def news():
         print("Um erro desconhecido ocorreu")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.getenv('PORT'), '5000')
+    app.run(host='0.0.0.0', port = port)
