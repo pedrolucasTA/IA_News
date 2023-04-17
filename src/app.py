@@ -50,7 +50,7 @@ def news():
                     last_news = True
                 SpeakText(title)
             if last_news:
-                SpeakText('Aqui estão as outras notícias')
+                SpeakText('Confira mais 10 notícias sobre esse tema')
             return render_template('news.html', articles=articles)
     except sr.RequestError as e:
         print("Não foi possível requisitar o pedido; {0}".format(e))

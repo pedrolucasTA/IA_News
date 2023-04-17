@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
- <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
 <head>
-	<title>Gravar áudio</title>
+    <title>SONIA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script>
+        const trigger = document.getElementById("trigger");
+        const dots = document.querySelector(".dots");
+
+        function onAnimationEnd() {
+            dots.classList.remove("active");
+        }
+
+        trigger.addEventListener("click", function (e) {
+            dots.classList.add("active");
+            dots.addEventListener("animationend", onAnimationEnd);
+        });
+    </script>
 </head>
-    <body>
-        <h1>Gravar áudio</h1>
-        <form id="form" action="/news" method="POST">
-            <button class='button' type="submit">Gravar</button>
-        </form>
-    </body>
+
+<body>
+    <div class="container">
+        <h1>S.O.N.I.A</h1>
+        <h3>system of news in audio</h3>
+    </div>
+
+    <form id="form" action="/news" method="POST">
+        <input id="trigger" class='button' type="submit">
+        <label class="trigger" for="trigger"></label>
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </form>
+</body>
+
 </html>

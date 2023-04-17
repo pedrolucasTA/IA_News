@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Notícias</title>
+	<title>SONIA</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+	<script>
+		function goBack() {
+			window.history.back();
+		}
+	</script>
 </head>
+
 <body>
-	<h1>As 10 Notícias da ultima hora:</h1>
+	<button class="back-button" onclick="goBack()">Voltar</button>
+	<h1>+ 10 Notícias da última hora</h1>
 	<ul>
 		{% for article in articles %}
 		<li>
@@ -15,4 +24,5 @@
 		{% endfor %}
 	</ul>
 </body>
+
 </html>
